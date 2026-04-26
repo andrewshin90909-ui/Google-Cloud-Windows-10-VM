@@ -2,5 +2,5 @@ curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trust
 echo "deb https://ngrok-agent.s3.amazonaws.com bookworm main" | sudo tee /etc/apt/sources.list.d/ngrok.list
 sudo apt update
 sudo apt install -y ngrok
-ngrok config add-authtoken 3CmTNsNhwNrqAa2yCAyj8eO5RVy_7CncuomLVusNg9GbgoXhB
+ngrok config add-authtoken "TOKEN HERE-REMOVE QUOTES."
 ngrok http 8006

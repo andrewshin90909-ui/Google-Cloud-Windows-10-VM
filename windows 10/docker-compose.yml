@@ -1,0 +1,28 @@
+services:
+  windows: 
+    image: dockurr/windows
+    container_name: windows
+    environment:
+      VERSION: "11e"
+      DISK_SIZE: "950G"      # realistic size for current disk
+      CPU_CORES: "24"        #
+      RAM_SIZE: "128G"      # realistic for Cloud Shell
+      REGION: "en-US"
+      KEYBOARD: "en-US"
+      KVM: "Y"
+    devices:
+      - /dev/kvm/
+      - /dev/net/tun
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 8006:8006
+      - 3389:3389/tcp
+      - 3389:3389/udp
+    volumes:
+      - /root/windows:/storage   # make sure this path is on your 95G overlay disk
+    restart: always
+    stop_grace_period: 2m
+#NOTE: This Docker compose file is only for Enterprise Plan users (Paid Plans) In Google Cloud, Please
+#Go to https://github.com/andrewshin90909-ui/Google-Cloud-Windows-10-VM/blob/main/archives/free-plan-docker-compose.yml
+#For the Free plan docker compose.
